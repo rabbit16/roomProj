@@ -1,6 +1,8 @@
 <template>
   <!-- 轮播图区域 -->
   <view>
+    <my-nav></my-nav>
+    <custom-tab-bar direction="horizontal" :show-icon="true" :selected="selected" @onTabItemTap="onTabItemTap" />
     <view class="swiper-main">
       <swiper :indicator-dots="true" :autoplay="true" :interval="3000" :duration="1000" :circular="true">
         <swiper-item v-for="(item, i) in swiperList" :key="i">
@@ -68,7 +70,7 @@
     data() {
       return {
         swiperList: [], //创建一个列表存放轮播图的地址
-        eventList: [] //这个是活动的列表
+        eventList: [], //这个是活动的列表
       };
     },
     onLoad() {
@@ -240,6 +242,7 @@
       flex-direction: column;
       justify-content: space-between;
       width: 345px;
+
       .event-item {
         display: flex;
         flex-direction: row;
@@ -280,7 +283,8 @@
           }
         }
       }
-      .detail{
+
+      .detail {
         margin-left: auto;
         font-size: 13px;
         color: #606266;
